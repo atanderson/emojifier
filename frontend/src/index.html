@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>emitter</title>
+    <link href="css/styles.min.css" type="text/css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="row">
+            <div class="small-4 columns">
+                emojifier
+            </div>
+            <div class="small-8 columns">
+                <ticker></ticker>
+            </div>
+        </div>
+    </div>
+
+    <div class="row search-bar">
+        <div class="small-12 medium-8 medium-offset-2 columns">
+            <form action="">
+                <input id="string" class="input-group-field" type="text" placeholder="enter phrase to emojify"/>
+                <button class="button success">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <results-callout></results-callout>
+    <results-table></results-table>
+
+    <div class="row footer">
+        <div class="small-12 medium-8 medium-offset-2 columns">
+            <a href="#">github</a> | <a href="#">about</a>
+        </div>
+    </div>
+    <script src="js/app.min.js"></script>
+</body>
+</html>

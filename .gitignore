@@ -1,0 +1,5 @@
+/node_modules
+/frontend/build
+.DS_Store
+classifier-backup.json
+npm-debug.log

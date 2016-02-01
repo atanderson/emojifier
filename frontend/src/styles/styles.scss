@@ -1,0 +1,259 @@
+//Colors =======================================================================
+$linen:              #FCFCFC;
+$offWhite:           #F3F3F3;
+$overcast:           #CCCCCC;
+$steel:              #999999;
+$offBlack:           #333333;
+$pastelGreen:        #A1F9B4;
+$kermit:             #22BB5B;
+$fa-inputShadow:     #CACACA;
+$magenta:            #FF00FF;
+$cyan:               #00FFFF;
+$pumpkin:            #FF9900;
+$faded:              rgba(0, 0, 0, 0.7);
+
+//Global =======================================================================
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Raleway", "Helvetica Neue", "Helvetica", "Ariel", sans-serif;
+}
+
+//Header/topbar ================================================================
+.top-bar {
+    background-color: $offWhite;
+    border-bottom: 1px solid $overcast;
+    color: $offBlack;
+}
+
+ticker {
+    float: right;
+    text-align: right;
+    
+    .count {
+        position: relative;
+        -webkit-animation: drop-in .25s linear;
+    }
+}
+
+//Search bar ===================================================================
+.search-bar {
+    margin-bottom: 1.4rem;
+    margin-top: 2rem;
+
+    input,
+    button {
+        height: 3.5rem;
+        display: block;
+        float: left;
+        @media only screen and (max-width: 640px){
+            font-size: .75rem;
+            height: 2.5rem;
+        }
+    }
+
+    form {
+        width: 100%;
+    }
+
+    input {
+        border-right: none;
+        box-shadow: none;
+        width: 80%;
+
+        &:focus {
+            border-right: none;
+
+            ~ button {
+                box-shadow: 0 0 5px $fa-inputShadow;
+                transition: box-shadow .5s;
+            }
+        }
+    }
+
+    button.success {
+        background: $pastelGreen;
+        border: 1px solid $kermit;
+        color: $kermit;
+        letter-spacing: 1px;
+        margin: 0;
+        text-transform: uppercase;
+        width: 20%;
+
+        &:hover {
+            background: darken($pastelGreen, 5);
+            border-color: darken($kermit, 5);
+            color: darken($kermit, 5);
+        }
+    }
+}
+
+//Results callout ==============================================================
+results-callout .callout.secondary {
+    background-color: $linen;
+    border-color: $overcast;
+    border-radius: 3px;
+    color: $offBlack;
+    padding: 1.25rem 2.25rem;
+    position: relative;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: auto;
+        display: block;
+        width: 0;
+        border-style: solid;
+    }
+
+    &::before {
+        border-color: $overcast transparent;
+        border-width: 0 15px 20px;
+        left: 40px;
+        top: -20px;
+    }
+
+    &::after {
+        border-color: $linen transparent;
+        border-width: 0px 14px 19px;
+        left: 41px;
+        top: -18px;
+    }
+}
+
+.quote {
+    color: $overcast;
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 0;
+
+    &.left {
+        left: 5px;
+    }
+
+    &.right {
+        right: 5px;
+        bottom: 0px;
+    }
+}
+
+//Results Table ================================================================
+results-table {
+    .row {
+        -webkit-animation: pop-in .2s ease;
+    }
+}
+
+.result {
+    float: left;
+    width: 100%;
+
+    .inner {
+        position: relative;
+        text-align: center;
+    }
+
+    p {
+        color: $overcast;
+        font-style: italic;
+        margin-bottom: 5px;
+    }
+
+    &.best {
+        margin-bottom: 1rem;
+
+        .inner {
+            background: transparentize($magenta, .95);
+            border-radius: 3px;
+            border: 1px solid $magenta;
+            font-size: 3rem;
+            padding: .5rem;
+            -webkit-animation: rainbow-border 10s infinite alternate,
+                               rainbow-background 10s infinite alternate;
+
+            &.none {
+                color: transparentize($magenta, .95);
+                font-style: italic;
+                -webkit-animation: rainbow-border 10s infinite alternate,
+                                   rainbow-background 10s infinite alternate,
+                                   rainbow-text 10s infinite alternate;
+            }
+        }
+    }
+
+    &.runner-up {
+        .inner {
+            color: $faded;
+            font-size: 1.5rem;
+            border-top: 1px solid $overcast;
+            border-left: 1px solid $overcast;
+            border-right: 1px solid $overcast;
+        }
+
+        &:nth-child(odd) .inner {
+            background: $offWhite;
+        }
+
+        &:last-of-type .inner {
+            border-bottom: 1px solid #cccccc;
+        }
+    }
+}
+
+.confidence {
+    color: $steel;
+    font-family: monospace;
+    font-size: .9rem;
+    padding-left: .5rem;
+    position: absolute;
+    right: 5px;
+    text-align: right;
+    top: 2px;
+}
+
+//Footer =======================================================================
+.footer {
+    margin-top: 2rem;
+
+    > div {
+        text-align: center;
+        color: $overcast;
+    }
+}
+
+//Animations ===================================================================
+@-webkit-keyframes drop-in {
+    0% { top: -30px; }
+    100% { top: 0; }
+}
+
+@-webkit-keyframes rainbow-border {
+    0% { border-color: $magenta; }
+    33% { border-color: $cyan; }
+    66% { border-color: $pumpkin; } 
+}
+
+@-webkit-keyframes rainbow-text {
+    0% { color: transparentize($magenta, .5); }
+    33% { color: transparentize($cyan, .5); }
+    66% { color: transparentize($pumpkin, .5); }
+}
+
+@-webkit-keyframes rainbow-background {
+    0% { background-color: transparentize($magenta, .95); }
+    33% { background-color: transparentize($cyan, .95); }
+    66% { background-color: transparentize($pumpkin, .95); }
+}
+
+@-webkit-keyframes pop-in {
+    0% { -webkit-transform: scale(0.95); }
+    40% { -webkit-transform: scale(1.05); }
+    100% { -webkit-transform: scale(1.0); }
+}
